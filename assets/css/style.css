@@ -1,0 +1,450 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #fff; /* Blanco puro */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Smooth scrolling and anchor offset to account for overlapping navbar */
+html {
+    scroll-behavior: smooth;
+}
+
+/* When an element is targeted by an anchor, offset it so it's visible below the fixed navbar */
+section[id] {
+    scroll-margin-top: calc(var(--navbar-overlap) + 10px);
+}
+
+/* ===== Barra superior ===== */
+.top-bar {
+    font-size: 0.9rem;
+    background: #222;
+    color: #fff;
+}
+
+/* ===== Navbar flotante ===== */
+.custom-navbar {
+    background: #fff; /* Fondo blanco */
+    margin: 0 auto;
+    margin-top: -5px; /* Para que "flote" debajo de la top-bar */
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    position: relative;
+}
+
+/* Navbar links */
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+    color: #000 !important; /* Texto negro */
+    transition: all 0.3s ease;
+}
+
+.custom-navbar .nav-link.active {
+    font-weight: bold;
+}
+
+/* Hover en navbar */
+.custom-navbar .nav-link:hover {
+    color: #007BFF !important; /* Azul Bootstrap */
+    text-decoration: none;
+}
+
+
+/* Logo dentro del navbar */
+.logo-nav {
+    height: 40px;   /* Tamaño fijo */
+    width: auto;    /* Mantiene proporción */
+    object-fit: contain; /* Evita deformación */
+}
+
+/* ===== Primera sección azul ===== */
+.section-hero {
+    background: #007BFF; /* Azul Bootstrap */
+    color: #fff;
+    text-align: center;
+    /* Reducir padding: el carrusel controla la altura del hero para evitar deformaciones */
+    padding: 20px 20px 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-hero h1,
+.section-hero p {
+    margin: 0 0 15px 0;
+}
+
+/* Asegurar que el título del hero esté por encima del carrusel y sea legible */
+.section-hero .container h1 {
+    position: relative;
+    z-index: 60; /* por encima del carousel y overlay */
+    color: #fff;
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    margin-bottom: 0.75rem;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+}
+
+/* Empujar el carrusel ligeramente hacia abajo para despejar el título */
+.section-hero .carousel {
+    margin-top: 0.5rem;
+}
+/* ===== Segunda sección (otro color) ===== */
+.section-alt {
+    background: #f4f4f9;
+    color: #333;
+    text-align: center;
+    padding: 80px 20px;
+}
+/* ===== tercera sección (otro color) ===== */
+.section-next {
+    background: #c8cbce; /* Gris claro */
+    color: #333;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Sección final / contacto: aplicar mismo estilo que las demás secciones ===== */
+.section-end {
+    background: #f4f4f9; /* mismo tono que section-alt */
+    color: #333;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Divisor en forma de rombo ===== */
+.section-divider {
+    position: relative;
+    width: 20px;   /* Tamaño del rombo */
+    height: 20px;
+    background: #000; /* Negro */
+    margin: -10px auto; /* Lo centra y lo superpone */
+    transform: rotate(45deg); /* Rota el cuadrado a rombo */
+    z-index: 10;
+}
+
+/* ===== Divisor en forma de rombos continuos ===== */
+.section-divider-romb-chain {
+    width: 100%;
+    height: 20px;               
+    margin: -10px 0;             
+  line-height: 0;
+  z-index: 10;
+  display: block;
+  overflow: hidden;
+
+  /* Fondo transparente para que solo se vean los rombos */
+  background-color: transparent;
+
+  /* SVG del rombo puntiagudo en una sola línea */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><polygon points='10,0 20,10 10,20 0,10' fill='%23c8cbce'/></svg>");
+
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 20px 20px;    /* cada rombo mide 20x20 */
+}
+
+/* Divisor con doble patrón: cuando el divisor está entre .section-alt (arriba) y
+   .section-next (abajo) pintamos dos pseudo-elementos con el patrón en colores
+   correspondientes para crear el efecto de 'corte' sobre ambos lados. */
+
+/* Si el divisor precede a .section-end, mostramos el patrón encima (como corte) usando ::before */
+.section-divider-romb-chain + .section-end {
+    position: relative;
+}
+.section-divider-romb-chain + .section-end::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 20px;
+    top: -10px; /* superpone hacia arriba */
+    display: block;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><polygon points='10,0 20,10 10,20 0,10' fill='%23c8cbce'/></svg>");
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: 20px 20px;
+    z-index: 15;
+    pointer-events: none;
+}
+
+/* Ajuste del contenido */
+main {
+    flex: 1;
+    margin-top: -62px; /* Navbar flotante sobre el azul */
+}
+
+/* ===== Footer al fondo ===== */
+footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Empuja el footer al fondo */
+    width: 100%;
+}
+
+/* Back to top button (limpio y específico) */
+#backToTop {
+    /* Floating square button */
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 99999;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    max-width: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #007BFF;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    border: none;
+    opacity: 0;
+    transform: translateY(12px) scale(.95);
+    transition: opacity .28s ease, transform .28s ease, visibility .12s;
+    visibility: hidden;
+    cursor: pointer;
+    pointer-events: none; /* inactivo hasta que sea visible */
+}
+
+#backToTop svg path { stroke: #fff; }
+#backToTop:hover { background: #0056b3; }
+
+/* Estado visible */
+#backToTop.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* En móviles reducir tamaño si se desea */
+@media (max-width: 480px) {
+    #backToTop {
+        right: 12px;
+        bottom: 12px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* ===== Dropdown: mostrar al pasar el mouse en escritorio ===== */
+@media (hover: hover) and (min-width: 992px) {
+    .custom-navbar .nav-item.dropdown {
+        position: relative;
+    }
+
+    .custom-navbar .dropdown-menu {
+        display: block; /* permitimos controlar visibilidad con visibility/opacity */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 10rem;
+        margin: 0.25rem 0 0 0;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(.25rem);
+        transition: opacity .15s ease, transform .15s ease, visibility .15s;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+        z-index: 2000;
+    }
+
+    .custom-navbar .nav-item.dropdown:hover > .dropdown-menu {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Evitar que el menú rompa el flujo del navbar */
+    .custom-navbar .nav-item.dropdown .dropdown-item {
+        white-space: nowrap;
+    }
+}
+
+/* ===== Pequeño ajuste para móviles: dropdown por defecto gestionado por JS/Bootstrap ===== */
+@media (max-width: 991.98px) {
+    .custom-navbar .dropdown-menu {
+        position: static;
+        transform: none;
+        visibility: visible;
+        opacity: 1;
+        box-shadow: none;
+    }
+}
+
+/* ===== Carrusel / Banner fijo y responsive (variable-driven) ===== */
+:root {
+    --hero-height-mobile: 140px;
+    --hero-height-desktop: 320px;
+    --hero-height-xl: 420px;
+    --control-size: 80px; /* tamaño por defecto de los controles */
+    --control-size-mobile: 56px;
+    --indicator-offset: 56px; /* distancia de los indicadores fuera del banner (aumentada) */
+    --control-arrow-size: 2.5rem;
+    --navbar-overlap: 65px; /* altura del solapamiento de la navbar sobre el hero (coincide con main margin-top) */
+}
+
+/* La sección hero controla la altura del banner para que las imágenes siempre se ajusten */
+.section-hero {
+    /* Permitimos que los controles puedan salir del área de la imagen */
+    overflow: visible;
+    /* Empujar el contenido del hero por debajo de la navbar solapada. Mantener un pequeño padding extra (20px) */
+    padding-top: calc(var(--navbar-overlap) + 20px);
+    padding-bottom: 3.5rem; /* separa visualmente el carrusel de la sección siguiente (aumentado) */
+}
+
+/* Aplicamos la altura al contenedor del carousel */
+.section-hero .carousel,
+.section-hero .carousel-inner,
+.section-hero .carousel-item {
+    height: var(--hero-height-desktop);
+}
+
+/* Asegurar que las imágenes se recorten dentro del contenedor */
+.section-hero .carousel-inner {
+    overflow: hidden;
+}
+
+/* Las imágenes ocupan el 100% del contenedor y se recortan con object-fit */
+.section-hero .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    
+}
+
+/* Asegurar que los controles y los indicadores estén siempre por encima de las imágenes */
+.section-hero .carousel-indicators {
+    z-index: 40;
+    /* indicadores dentro del área del carousel, con separación interna */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px; /* dentro del banner */
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.section-hero .carousel-control-prev,
+.section-hero .carousel-control-next {
+    z-index: 35;
+    width: var(--control-size);
+    height: var(--control-size);
+    top: 50%;
+    transform: translateY(-50%);
+    /* colocarlos fuera del área de la imagen */
+    --offset-outside: 80px; /* aumentado para alejar más las flechas */
+    display: block;
+}
+
+/* mover los controles hacia afuera (izquierda/derecha) */
+.section-hero .carousel-control-prev {
+    left: calc(-1 * var(--offset-outside));
+}
+.section-hero .carousel-control-next {
+    right: calc(-1 * var(--offset-outside));
+}
+
+/* Hacer los iconos de control más visibles sobre imágenes claras */
+.section-hero .carousel-control-prev-icon,
+.section-hero .carousel-control-next-icon {
+    display: none; /* ocultamos los iconos por defecto de Bootstrap */
+}
+
+/* Estilo para los SVG inline dentro de los controles */
+.section-hero .carousel-control-prev svg,
+.section-hero .carousel-control-next svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.section-hero .carousel-control-prev svg path,
+.section-hero .carousel-control-next svg path {
+    stroke: #333;
+}
+
+/* Hover/active state para controles */
+.section-hero .carousel-control-prev:hover svg path,
+.section-hero .carousel-control-next:hover svg path {
+    stroke: #ffffff; /* color blanco al hover para destacar */
+}
+
+/* Pequeña superposición para mejorar contraste de texto/control sobre la imagen */
+.section-hero .carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.12));
+    pointer-events: none;
+    z-index: 5; /* por debajo de controles (20) y por encima de la imagen (0) */
+}
+
+/* Mobile: mantener controles dentro del área y ajustar offsets */
+@media (max-width: 767.98px) {
+    .section-hero .carousel-control-prev {
+        left: 8px;
+        right: auto;
+        width: var(--control-size-mobile);
+        height: var(--control-size-mobile);
+        --offset-outside: 0px;
+    }
+    .section-hero .carousel-control-next {
+        right: 8px;
+        left: auto;
+        width: var(--control-size-mobile);
+        height: var(--control-size-mobile);
+        --offset-outside: 0px;
+    }
+    .section-hero {
+        /* navbar suele ser más pequeña en móvil; reducir el offset */
+        padding-top: calc(45px + 30px);
+        padding-bottom: 1.5rem;
+    }
+    /* indicadores dentro en móvil, con separación interna */
+    .section-hero .carousel-indicators {
+        bottom: 10px;
+        position: absolute;
+    }
+}
+
+/* Mobile-first: altura menor en móviles */
+@media (max-width: 767.98px) {
+    .section-hero .carousel,
+    .section-hero .carousel-inner,
+    .section-hero .carousel-item {
+        height: var(--hero-height-mobile);
+    }
+}
+
+/* Pantallas muy grandes: más altura */
+@media (min-width: 1200px) {
+    .section-hero .carousel,
+    .section-hero .carousel-inner,
+    .section-hero .carousel-item {
+        height: var(--hero-height-xl);
+    }
+}
+
+/* Si el rombo está antes de la sección .section-next queremos también mostrarlo debajo
+   usando un pseudo-elemento en la propia sección. Esto asegura el efecto arriba y abajo. */
