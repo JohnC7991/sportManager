@@ -8,6 +8,7 @@ if (isset($_SESSION["usuario"])) {
 }
 
 require_once 'views/layout/header.php';
+echo '<br><br><br>';
 ?>
 
 <div class="container mt-5 mb-5">
@@ -21,11 +22,7 @@ require_once 'views/layout/header.php';
                     <form action="controller/registroEscuelaController.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="id_escuela" class="form-label">ID de Escuela</label>
-                                <input type="number" class="form-control" id="id_escuela" name="id_escuela" placeholder="Ej. 1" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="nombre" class="form-label">Nombre</label>
+                                <label for="nombre" class="form-label">Nombre de Escuela</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la escuela" required>
                             </div>
                         </div>

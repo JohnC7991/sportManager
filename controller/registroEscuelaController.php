@@ -5,7 +5,7 @@ require_once "../config/conexion.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit_escuela"])) {
     // Sanitización básica
-    $id_escuela = filter_var(trim($_POST["id_escuela"]), FILTER_VALIDATE_INT);
+    //trim elimina espacios en blanco al inicio y al final, filter_var con FILTER_SANITIZE_FULL_SPECIAL_CHARS convierte caracteres especiales a entidades HTML para evitar XSS, FILTER_VALIDATE_INT y FILTER_VALIDATE_FLOAT validan que los valores sean del tipo esperado, FILTER_SANITIZE_EMAIL limpia el correo electrónico.
     $nombre = filter_var(trim($_POST["nombre"]), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $disciplina = filter_var(trim($_POST["disciplina"]), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $dia_pago = filter_var(trim($_POST["dia_pago"]), FILTER_VALIDATE_INT);
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit_escuela"])) {
     $direccion = filter_var(trim($_POST["direccion"]), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     // Validaciones
-    if (empty($id_escuela) || empty($nombre) || empty($disciplina) || empty($dia_pago) || empty($valor_inscripcion) || empty($valor_mensualidad) || empty($correo) || empty($pass_app) || empty($telefono) || empty($direccion)) {
+    if (empty($nombre) || empty($disciplina) || empty($dia_pago) || empty($valor_inscripcion) || empty($valor_mensualidad) || empty($correo) || empty($pass_app) || empty($telefono) || empty($direccion)) {
         header("Location: ../registroEscuela.php?error=empty");
         exit();
     }

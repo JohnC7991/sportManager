@@ -448,3 +448,63 @@ footer {
 
 /* Si el rombo está antes de la sección .section-next queremos también mostrarlo debajo
    usando un pseudo-elemento en la propia sección. Esto asegura el efecto arriba y abajo. */
+ 
+ 
+   /* ===== Estilos para la sección de planes ===== */
+.card{
+margin-top: 20px;
+background-color: #c8cbce;
+border-radius: 15px;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+padding: 30px;
+width: 300px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    margin: 0;
+    color: #1e1e1e;
+}
+
+.price {
+    font-size: 2.5rem;
+    color: #0e0d0d;
+    margin: 20px 0;
+}
+
+.features{
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+    color: #1e1e1e;
+}
+
+.features li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.btnPrice{
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    color: #eff9f3;
+    background-color: #27f27f;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+.btnPrice:hover {
+    background-color: #2cb95d;
+    text-decoration: none;
+    color: #aef1b4;
+}

@@ -38,8 +38,43 @@
     </div>
 </section>
 <div class="section-divider"></div>
+<div class="section-divider"></div>
+<!--Aqui iniciamos con el section de Planes-->
 <section class="section-alt" id="planes">
     <h2>Planes</h2>
+
+        <div class="card">
+            <h2>Plan Mensual</h2>
+            <p class="price">$65.000 / mes</p>
+            <ul class="features">
+                <li>Acceso a todas las funciones principales</li>
+                <li>Soporte por correo electrónico</li>
+                <li>Actualizaciones regulares</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Comprar</a>
+        </div>
+
+        <div class="card">
+            <h2>Plan Semestral</h2>
+            <p class="price">$300.000 / 6 meses</p>
+            <ul class="features">
+                <li>Acceso a todas las funciones principales</li>
+                <li>Soporte por correo electrónico</li>
+                <li>Actualizaciones regulares</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Comprar</a>
+        </div>
+        <div class="card">
+            <h2>Plan Anual</h2>
+            <p class="price">$575.000 / 12 meses</p>
+            <ul class="features">
+                <li>Acceso a todas las funciones principales</li>
+                <li>Soporte por correo electrónico</li>
+                <li>Actualizaciones regulares</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Comprar</a>
+        </div>
+    
     <p>Contenido de la segunda sección con otro color.</p>
 </section>
 <div class="section-divider-romb-chain"></div>
