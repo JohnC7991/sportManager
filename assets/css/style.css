@@ -451,7 +451,11 @@ footer {
  
  
    /* ===== Estilos para la sección de planes ===== */
-.card{
+.cardscontain{
+    align-content: center;
+}
+
+   .cards{
 margin-top: 20px;
 background-color: #c8cbce;
 border-radius: 15px;
@@ -461,12 +465,12 @@ width: 300px;
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
+.cards:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.card h2 {
+.cards h2 {
     margin: 0;
     color: #1e1e1e;
 }

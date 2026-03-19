@@ -14,7 +14,7 @@ echo '<br><br><br>';
 <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10">
-            <div class="card shadow-sm border-0">
+            <div class="card shadow-sm border">
                 <div class="card-header bg-primary text-white text-center">
                     <h2>Registro de Escuela</h2>
                 </div>
