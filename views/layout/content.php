@@ -40,9 +40,11 @@
 <div class="section-divider"></div>
 <div class="section-divider"></div>
 <!--Aqui iniciamos con el section de Planes-->
-<section class="section-alt" id="planes">
+<section class="section-alt" id="planes" background-color="#dcdfe2d5">
+    <h2>Planes</h2><br><br><br>
     <div class="cardscontain">
-        <h2>Planes</h2>
+        
+        <br><br><br><br><br>
 
         <div class="cards">
             <h2>Plan Mensual</h2>
@@ -75,7 +77,7 @@
             </ul>
             <a href="#" class="btn btn-primary">Comprar</a>
         </div>
-    </div>
+    </div><br><br><br><br><br>
     <p>Contenido de la segunda sección con otro color.</p>
 </section>
 <div class="section-divider-romb-chain"></div>

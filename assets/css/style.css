@@ -99,7 +99,7 @@ section[id] {
 }
 /* ===== Segunda sección (otro color) ===== */
 .section-alt {
-    background: #f4f4f9;
+    background: linear-gradient( 135deg, #dadadaad 20%, #979797b5 30%, #f8f8f8b5 50%);
     color: #333;
     text-align: center;
     padding: 80px 20px;
@@ -325,7 +325,7 @@ footer {
 .section-hero .carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit:contain;
     display: block;
     
 }
@@ -452,7 +452,9 @@ footer {
  
    /* ===== Estilos para la sección de planes ===== */
 .cardscontain{
-    align-content: center;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
 }
 
    .cards{
@@ -467,7 +469,7 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 .cards:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 30px rgb(6, 101, 243);
 }
 
 .cards h2 {
