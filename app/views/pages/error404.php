@@ -1,4 +1,4 @@
-<section class="container py-5">
+<section class="container py-5" style="background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('assets/img/Error404.jpg') center/cover no-repeat; background-size: cover;">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card shadow-sm border-0 sm-404-card">
