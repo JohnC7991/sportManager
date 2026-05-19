@@ -1,6 +1,6 @@
 <section class="section-hero" id="sobre-nosotros">
     <div class="container text-center">
-        <h1>Sobre nosotros</h1>
+        
 
         <!-- Carrusel de imágenes usando Bootstrap 5 -->
         <div id="heroCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
@@ -11,13 +11,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="assets/img/icoaner.jpeg" class="d-block w-100" alt="Slide 1" loading="lazy">
+                    <img src="assets/img/bann2.png" class="d-block w-100" alt="Slide 1" loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/img/icoaner.jpeg" class="d-block w-100" alt="Slide 2" loading="lazy">
+                    <img src="assets/img/bann21.png" class="d-block w-100" alt="Slide 2" loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/img/icoaner.jpeg" class="d-block w-100" alt="Slide 3" loading="lazy">
+                    <img src="assets/img/bann4.png" class="d-block w-100" alt="Slide 3" loading="lazy">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Anterior">
@@ -36,8 +36,10 @@
             </button>
         </div>
     </div>
+    
 </section>
 <div class="section-divider"></div>
+<h1 class="">Sobre nosotros</h1>
 <section class="section-alt" id="planes">
     <h2>Planes</h2>
     <p>Contenido de la segunda sección con otro color.</p>
