@@ -321,7 +321,7 @@ footer {
 /* ===== Carrusel / Banner fijo y responsive (variable-driven) ===== */
 :root {
     --hero-height-mobile: 140px;
-    --hero-height-desktop: 320px;
+    --hero-height-desktop: 100%;
     --hero-height-xl: 420px;
     --control-size: 80px;
     /* tamaño por defecto de los controles */
