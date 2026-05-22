@@ -85,31 +85,31 @@
         <p>Nuestra escuela de formación deportiva ofrece beneficios como la mejora de la salud física y mental, el desarrollo de habilidades sociales y emocionales como el trabajo en equipo y la disciplina, el aprendizaje de valores como el respeto y la sana competencia, y la oportunidad de descubrir el potencial de cada individuo, logrando un desarrollo integral.</p>
 
         <!-- Carrusel de imágenes usando Bootstrap 5 -->
-        <div id="heroCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div id="beneficiosCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#beneficiosCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#beneficiosCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#beneficiosCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="assets/img/sociales.png" class="d-block w-50" alt="Slide 1" loading="lazy">
+                    <img src="assets/img/fisicos.png" class="d-block w-50" alt="Slide 1" loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/img/fisicos.png" class="d-block w-50" alt="Slide 2" loading="lazy">
+                    <img src="assets/img/sociales.png" class="d-block w-50" alt="Slide 2" loading="lazy">
                 </div>
                 <div class="carousel-item">
                     <img src="assets/img/emocionales.png" class="d-block w-50" alt="Slide 3" loading="lazy">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Anterior">
+            <button class="carousel-control-prev" type="button" data-bs-target="#beneficiosCarousel" data-bs-slide="prev" aria-label="Anterior">
                 <!-- SVG icon: left arrow -->
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                     <path d="M15 18l-6-6 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Siguiente">
+            <button class="carousel-control-next" type="button" data-bs-target="#beneficiosCarousel" data-bs-slide="next" aria-label="Siguiente">
                 <!-- SVG icon: right arrow -->
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                     <path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -125,6 +125,19 @@
 <section class="section-end" id="contacto">
     <div class="container">
         <h2>Contacto</h2>
-        <p>Contenido de la sección de contacto.</p>
+        <div class="contact-row">
+            <div class="contact-info">
+                <h3>Datos de contacto</h3>
+                <p>Tel: 601 577 1818</p>
+                <p>Horario de atención: Lunes, miercoles y viernes, 7:30 AM - 10:00 AM Y 3:00 PM - 5:30 PM</p>
+                <p>Email: sportmanager.escuelas@gmail.com</p>
+                <p>Cra. 7 #14 SUR-46, Soacha, Cundinamarca</p>
+            </div>
+
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.295032450036!2d-74.23226599967118!3d4.561610775338675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9fc31d8abb7b%3A0x17511f890f0d9c84!2sel%20golazo!5e0!3m2!1ses!2sco!4v1779424534520!5m2!1ses!2sco" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
     </div>
 </section>

@@ -181,3 +181,29 @@ function throttle(fn, wait){
         }
     }
 }
+
+// Asegurar controls del carrusel de beneficios funcionen
+document.addEventListener('DOMContentLoaded', function(){
+    try {
+        var carouselEl = document.getElementById('beneficiosCarousel');
+        if (!carouselEl) return;
+        if (typeof bootstrap === 'undefined') return;
+        var carouselInstance = bootstrap.Carousel.getOrCreateInstance(carouselEl);
+        var prevBtn = carouselEl.querySelector('.carousel-control-prev');
+        var nextBtn = carouselEl.querySelector('.carousel-control-next');
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function(e){
+                e.preventDefault();
+                carouselInstance.prev();
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function(e){
+                e.preventDefault();
+                carouselInstance.next();
+            });
+        }
+    } catch (err) {
+        console.warn('Error inicializando controles de beneficiosCarousel', err);
+    }
+});

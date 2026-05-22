@@ -799,6 +799,218 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
     pointer-events: auto;
 }
 
+/* ===== Estilos para la sección de Contacto (info izquierda, mapa derecha) ===== */
+.section-end .contact-row {
+    display: flex;
+    grid-template-columns: 1fr minmax(280px, 40%);
+    gap: 32px;
+    align-items: center; /* centra verticalmente info y mapa */
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0 40px;
+}
+
+
+
+.contact-info {
+  flex: 1;                    /* ocupa mitad del espacio */
+}
+
+.contact-map {
+  flex: 1;                    /* ocupa la otra mitad */
+}
+
+.section-end .contact-info {
+    text-align: left; /* contenido del texto permanece alineado a la izquierda */
+    color: #333;
+}
+
+.section-end .contact-info h3 {
+    margin-top: 0;
+    font-size: 1.125rem;
+    color: #1e1e1e;
+}
+
+.section-end .contact-info p,
+.section-end .contact-info li {
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.section-end .contact-map {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centra el iframe dentro de su celda */
+    min-width: 280px;
+    max-width: 600px;
+}
+
+.section-end .contact-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    max-width: 300px;
+    border: 0;
+    display:flex;
+    flex-direction: row-reverse;
+    margin: 0 auto;
+}
+
+@media (max-width: 991.98px) {
+    .section-end .contact-row {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 12px 8px 28px;
+    }
+
+    .section-end .contact-map {
+        width: 100%;
+        max-width: 100%;
+        min-width: auto;
+    }
+}
+
+/* ===== Ajustes para el carrusel de "Beneficios": full-width y responsivo ===== */
+/* Se aplica solo a #beneficiosCarousel para no alterar el comportamiento del hero */
+#beneficiosCarousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* limitado para centrar y mantener proporciones */
+    margin: 0 auto; /* centra el carrusel dentro del contenedor */
+    overflow: visible; /* permitir que los controles queden fuera */
+}
+
+#beneficiosCarousel .carousel-inner {
+    width: 100%;
+}
+
+#beneficiosCarousel .carousel-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#beneficiosCarousel .carousel-item img {
+    /* Imagen centrada y responsiva dentro del área del carousel */
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+@media (max-width: 767.98px) {
+    /* En móviles evitamos el efecto full-bleed lateral y limitamos la altura */
+    #beneficiosCarousel {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 12px; /* pequeño margen interior en móvil */
+    }
+
+    #beneficiosCarousel .carousel-item img {
+        max-height: 40vh;
+    }
+}
+
+/* Colocar controles (flechas) fuera del contenedor del carrusel */
+#beneficiosCarousel .carousel-control-prev,
+#beneficiosCarousel .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 64px;
+    height: 64px;
+    background: transparent;
+    border: none;
+    z-index: 70;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#beneficiosCarousel .carousel-control-prev {
+    left: -44px; /* fuera por la izquierda */
+}
+
+#beneficiosCarousel .carousel-control-next {
+    right: -44px; /* fuera por la derecha */
+}
+
+/* Ocultamos los iconos por defecto y usamos los SVG inline ya presentes */
+#beneficiosCarousel .carousel-control-prev-icon,
+#beneficiosCarousel .carousel-control-next-icon {
+    display: none;
+}
+
+#beneficiosCarousel .carousel-control-prev svg,
+#beneficiosCarousel .carousel-control-next svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#beneficiosCarousel .carousel-control-prev svg path,
+#beneficiosCarousel .carousel-control-next svg path {
+    stroke: #333;
+    stroke-width: 2;
+}
+
+#beneficiosCarousel .carousel-control-prev:hover svg path,
+#beneficiosCarousel .carousel-control-next:hover svg path {
+    stroke: #ffffff;
+}
+
+@media (max-width: 767.98px) {
+    /* En móvil las flechas quedan dentro para facilitar interacción */
+    #beneficiosCarousel .carousel-control-prev {
+        left: 8px;
+    }
+
+    #beneficiosCarousel .carousel-control-next {
+        right: 8px;
+    }
+}
+
+/* ===== Transición tipo 'fade' para evitar ver el fondo en imágenes PNG superpuestas ===== */
+/* Aplica solo al carrusel de beneficios para preservar el comportamiento del hero */
+#beneficiosCarousel .carousel-inner {
+    position: relative;
+}
+
+#beneficiosCarousel .carousel-item {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    /* Evitar transform de slide durante la transición para que sólo haga fade */
+    transform: none !important;
+}
+
+#beneficiosCarousel .carousel-item.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Asegurar que los estados intermedios no muestren el fondo transparente */
+#beneficiosCarousel .carousel-item.carousel-item-start,
+#beneficiosCarousel .carousel-item.carousel-item-end,
+#beneficiosCarousel .carousel-item-next,
+#beneficiosCarousel .carousel-item-prev {
+    opacity: 0;
+    transform: none !important;
+}
+
+/* Cuando Bootstrap añade clases 'carousel-item-start' o 'carousel-item-end' durante la animación,
+   forzamos opacidad para que la transición visual sea un cross-fade */
+#beneficiosCarousel .carousel-item.carousel-item-start.active,
+#beneficiosCarousel .carousel-item.carousel-item-end.active {
+    opacity: 1;
+}
+
 @media (max-width: 576px) {
     .modal.modal-top-right .modal-dialog {
         top: 8px;
@@ -1228,6 +1440,46 @@ footer {
     background: linear-gradient(160deg, #f8fbff 0%, #eef4fb 100%);
     border-radius: 14px;
     box-shadow: 0 20px 40px rgba(23, 32, 42, 0.12);
+}
+
+.section-404 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+    position: relative;
+    background: url('assets/img/Error404.jpg') center center / cover no-repeat;
+}
+
+.section-404::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.36);
+    z-index: 1;
+}
+
+.section-404__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 660px;
+}
+
+.section-404 .sm-404-card {
+    background: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 767.98px) {
+    .section-404 {
+        padding: 24px 16px;
+        background-position: center top;
+    }
+
+    .section-404 .sm-404-card {
+        padding: 0;
+    }
 }
 
 .sm-404-code {

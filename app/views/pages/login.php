@@ -1,6 +1,10 @@
 <br>
 <br>
 <?php
+if (!function_exists('sm_error_text')) {
+    require_once __DIR__ . '/../../helpers/ui.php';
+}
+
 $loginErrorCode = isset($_GET['error']) ? (string)$_GET['error'] : '';
 $loginErrorMap = [
     'invalid' => 'Usuario o contrasena incorrectos.',

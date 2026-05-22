@@ -1,6 +1,10 @@
 <br>
 <br>
 <?php
+if (!function_exists('sm_error_text')) {
+    require_once __DIR__ . '/../../helpers/ui.php';
+}
+
 $registerControllerPath = __DIR__ . '/../../../assets/js/registercontroller.js';
 $registerControllerVersion = is_file($registerControllerPath) ? (string)filemtime($registerControllerPath) : (string)time();
 $registerErrorCode = isset($_GET['error']) ? (string)$_GET['error'] : '';
